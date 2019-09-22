@@ -1,0 +1,55 @@
+CREATE TABLE movies (
+    movie_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(120),
+    year INTEGER,
+    director VARCHAR(120)
+);
+
+
+CREATE TABLE directors (
+    director_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    first VARCHAR(120),
+    last VARCHAR(120),
+    country VARCHAR(120)
+);
+
+DROP TABLE movies;
+
+CREATE TABLE movies (
+    movie_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(120),
+    year INTEGER,
+    director_id INTEGER,
+    FOREIGN KEY (director_id) REFERENCES directors(director_id)
+);
+
+1)
+SELECT title FROM movies;
+
+2)
+SELECT titles FROM movies 
+ORDER BY year DESC ;
+
+3)
+INSERT INTO directors 
+VALUES ( Jean-Pierre, Jeunet, France)
+
+4)
+SELECT director_id FROM directors
+WHERE (first="Jean-Pierre" AND  last ="Jeunet")
+
+5)
+INSERT INTO movies VALUES (Amelie,2001,2)
+
+6)
+SELECT * FROM directors ORDER BY country ASC
+
+7)
+SELECT country FROM directors
+INNER JOIN movies.director_id=directors.director_id WHERE (title="Amelie")
+
+8)
+SELECT movies.title, directors.last, directors.first FROM movies
+JOIN directors
+ON  movies.director_id=directors.director_id
+ORDER BY directors.last ASC
