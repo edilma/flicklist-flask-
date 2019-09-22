@@ -68,7 +68,7 @@ def add_movie():
 #  First: Hide the <h2>My Watchlist</h2> and it's unordered list.
 #  Second: Hide the crossoff form, since there are no movies to cross off. 
 # Then you can change get_current_watchlist back to the list of hard-coded movies.
-
+ccc
 @app.route("/")
 def index():
     encoded_error = request.args.get("error")
